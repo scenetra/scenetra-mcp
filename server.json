@@ -1,0 +1,43 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.scenetra/scenetra-mcp",
+  "title": "Scenetra",
+  "description": "Build and run AI image & video boards with 60+ models, routed to the lowest price.",
+  "websiteUrl": "https://www.scenetra.com",
+  "repository": {
+    "url": "https://github.com/scenetra/scenetra-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "scenetra-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "SCENETRA_API_TOKEN",
+          "description": "Your Scenetra MCP token (starts with sct_). Create one at https://app.scenetra.com/mcp",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://app.scenetra.com/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer <your Scenetra MCP token>",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
